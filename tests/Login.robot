@@ -21,7 +21,7 @@ User Login
 
 Incorrect pass
 
-    [Tags]      i_pass
+    [Tags]      inv_pass
 
     ${user}      Create Dictionary      email=priscilla@morais.com       password=abc123
     
@@ -43,7 +43,7 @@ User not found
 
 Incorrect Email
 
-    [Tags]      i_email
+    [Tags]      inv_email
 
     ${user}      Create Dictionary      email=priscilla$404.com       password=abc123
     
