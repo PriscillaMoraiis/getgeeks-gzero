@@ -5,7 +5,7 @@ Documentation       Authentication Login
 
 *Variables*
 
-${INPUT_EMAIL}      Id=email
+${INPUT_EMAIL}      id=email
 ${INPUT_PASS}       id=password
 
 
@@ -40,3 +40,14 @@ User Should Be Logged In
 
 Shold Be Type Email
     Get Property           ${INPUT_EMAIL}        type        equal       email
+
+
+Fill Password
+    
+    [Arguments]         ${user}
+    Fill Text           ${INPUT_PASS}           ${user}[password]
+
+Fill Email 
+
+    [Arguments]          ${user}
+    Fill Text            ${INPUT_EMAIL}         ${user}[email]
