@@ -11,7 +11,7 @@ Test Teardown        Finish Session
 
 Register a new user
     
-   ${user}      Factory User
+   ${user}      Factory User  faker
 
    Go to Signup Form
    Fill Signup Form   ${user}
@@ -22,7 +22,7 @@ Duplicate user
 
    [Tags]      attempt_signup
 
-   ${user}                 Factory User
+   ${user}                 Factory User   faker
    Add User From Database  ${user}
 
    Go to Signup Form
@@ -34,7 +34,7 @@ Wrong Email
 
    [Tags]      attempt_signup
 
-   ${user}     Factory Wrong Email
+   ${user}     Factory User   wrong_email
 
    Go to Signup Form
    Fill Signup Form  ${user}
@@ -46,7 +46,7 @@ Required Fields
    [Tags]      attempt_signup    reqf
 
    @{expected_alerts}      Create List
-   ...                     Cadê o nome?
+   ...                     Cadê o seu nome?
    ...                     E o sobrenome?
    ...                     O email é importante também!
    ...                     Agora só falta a senha!

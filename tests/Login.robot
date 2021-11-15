@@ -12,7 +12,7 @@ Test Teardown   Finish Session
 User Login 
     [Tags]      user_log
 # Tive um problema na aula 4 User Seed, não funcionou de nenhuma forma. Então para entregar o desafio optei por deixar o ADD User From database. :( 
-    ${user}                     Factory User Login
+    ${user}                     Factory User    login
     Add User From Database      ${user} 
     
     Go to login Page 
@@ -57,7 +57,7 @@ Required Email
 
     [Tags]      req_email
 
-    ${user}     Create Dictionary       password=abc123 
+    ${user}     Create Dictionary       email=${EMPTY}       password=abc123 
 
     Go to login Page 
     Fill Password               ${user}
@@ -68,10 +68,10 @@ Required Password
 
     [Tags]      req_pass
 
-    ${user}     Create Dictionary   email=priscilla@gravzero.com 
+    ${user}     Create Dictionary   email=priscilla@gravzero.com    password=${EMPTY}
 
     Go to login Page 
-    Fill Email                  ${user}
+    Fill Credentials                  ${user}
     Submit Credentials
     Alert Span Should Be    Senha obrigatória
 
@@ -82,7 +82,7 @@ Required Email and Password
     @{expected_alerts}      Create List
     ...                     E-mail obrigatório
     ...                     Senha obrigatória
-
     Go to login Page 
     Submit Credentials
     Alert Spans Should Be   ${expected_alerts}
+

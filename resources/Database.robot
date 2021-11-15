@@ -2,7 +2,8 @@
 
 Documentation       Data Base Helpers
 
-Library     DatabaseLibrary
+Library             DatabaseLibrary
+Library             factories/Users.py
 
 *Keywords*
 
@@ -33,8 +34,17 @@ Insert User
 
 Users Seed
     
-    ${user}     Factory User Login
-    Insert User ${user}
+    ${user}         Factory User    login
+    Insert User     ${user}
+
+    ${user2}        Factory User    be_geek
+    Insert User     ${user2} 
+
+    ${user3}        Factory User    short_desc
+    Insert User     ${user3} 
     
+    ${user4}        Factory User    long_desc
+    Insert User     ${user4} 
 
-
+    ${user5}        Factory User    whats_null
+    Insert User     ${user5} 
